@@ -1,0 +1,296 @@
+TRIE 
+how to implement our own try and then maybe modify
+it ever so slightly with an additional method.
+So here we're going to see an overlap in this try question with what we just learned from interface
+design throughout this question.
+I'm also going to extensively show you how to implement a try and we'll walk through all of these try
+basics again in case you're still a little unfamiliar, just so that we're rock solid on the concepts.
+The question we're going to look at says to implement a try with insert search and starts with methods.
+So this will be the interface of the TRAI that we need to implement.
+In my case, once again, because it's JavaScript, I'm going to implement it using a JavaScript class.
+The three methods are insert search and starts with.
+Insert receives a string, which will be the word that we're trying to insert into the tri, we're going
+to return nothing back from this function because all we're going to do is insert that word into the
+tree if it doesn't already exist.
+The search method also receives a string.
+That's the word that it's looking for.
+So we're going to search inside of our try to see if the word has been previously inserted before,
+if it's already existing in a try.
+Then we return.
+True.
+If it has not been inserted before, then we return false.
+Next, we have the starts with method, this is similar to search, except we don't need to see if the
+full word exists inside of our Srei.
+We're really just looking for a prefix.
+Hence why the argument it takes is called a string prefix.
+So here what we're going to look through is whether or not the characters of the prefix exist in the
+trie.
+It doesn't have to be the full inserted word.
+
+And once again, if the prefix exists, we return true.
+
+If it doesn't return false, and we'll break down all three methods very extensively so we know how
+
+it all works as well as diagramming it with a try.
+
+So let's start with our base try we have a root node that represents the entry point for this tri data
+
+structure.
+
+Let's say we call that insert method and we insert the string apple.
+
+Well, we're going to do is we're going to start from the root.
+
+And look, do we have an AI already inserted from this entry node?
+
+No, there's nothing here.
+
+So what we're going to do is start inserting we insert the AI from here.
+
+We look at the AI.
+
+Is there a P?
+
+No, insert a P at the P, we look again.
+
+Is there another P?
+
+No.
+
+So we insert the other P then from this third P we say, OK, what's the next character.
+
+It's an L..
+
+Do we have an L here.
+
+No.
+
+Insert it from the L.
+
+Is there an E.
+
+No.
+
+Insert it at this point we've reached the end of the word.
+
+So what we want to do is we want to say that this E represents the end of a word.
+
+So we would need to designate this E as the end somehow, maybe for each of these different nodes that
+
+represent the characters we have and is n the property.
+
+And this property is a boolean value.
+
+So if this E represents the end, then is and will be true.
+
+That's all we need in order for us to ensure that we know that when you hit this end, you have found
+
+the end of a word up until this point, continuing onwards.
+
+Let's say that what we do now is we want to search for the word dog.
+
+What happens is that we would start from the root node and we would look, is there a D?
+
+Because we want the first character of the word that we're searching for.
+
+No, there's no D so then what we return is false.
+
+The word dog does not exist in our tri.
+
+So what we would do is we would insert the word dog, let's say that's what happens next.
+
+Now from the root, we would look OK.
+
+Is there a D?
+
+No inserted from the D?
+
+Is there an O?
+
+No.
+
+Insert the O from the O.
+
+Is there a G?
+
+No, insert the G.
+
+We've reached the end of the word.
+
+Once again, G needs to be designated as an end.
+
+So we flipped.
+
+That is end to being true on the G and now we've inserted the dog word into our try.
+
+Let's say from here we were to research for the word dog.
+
+What would happen is that we would start from our roots and we would look for the first character.
+
+Is there a D?
+
+Yes, there is.
+
+And then from the D, is there an O?
+
+Yes, there is.
+
+And then from the oh, is there a G?
+
+Yes, there is.
+
+We've reached the end of the actual word search.
+
+But what about in our tree is the G an end character.
+
+We see that it is so here are searching successful.
+
+We return.
+
+True, but let's try and figure out if this works without the end character.
+
+Let's say we were searching for the word app.
+
+What would happen is we would start from the root.
+
+We would look for the first character.
+
+A it exists then P that also exists, then P after that.
+
+It's also existing.
+
+But we've reached the end of the word.
+
+Is this P an end character?
+
+It's not.
+
+There is no end value here.
+
+So this means that we return false for search.
+
+But this is different than if we were to call for the prefix of app.
+
+Prefix is a different method.
+
+It does not care about whether or not the last character that we go through with our traversal search
+
+is a good character or not.
+
+So we would once again start from the roots.
+
+We would look for the A, we would look for the P, then we would look for the P and we would reach
+
+the end of prefix.
+
+At this point, there could be more characters.
+
+It might not even be an end character for P, but that doesn't matter.
+
+We return true because we've reached the full end of the prefix word that we're searching for and all
+
+those characters exist in our try.
+
+This is the difference between prefix and search.
+
+Now, if we wanted the search to succeed, we would have to insert that word API into this try.
+
+So what would happen is that we would go from the root and we would look.
+
+Does the AI exist?
+
+Yes.
+
+Does the P exist?
+
+Yes.
+
+Does the other P exist?
+
+Yes.
+
+At this point, if none of these characters existed, we would insert them in, but they already exist.
+
+So we just continue to traverse down through the characters.
+
+But once we reach the end of the word that we're trying to build, then we say, OK, this P is now
+
+an end character.
+
+And now if we were to perform search AP again, we would start from the Roots, find the AI, find the
+
+P, find the P, realize that it's an end character.
+
+So here we would return.
+
+True, these are all the different conditions we need to satisfy when we build out our try.
+
+The main thing here is that we have that new prefix method on top of the existing try methods that we
+
+need to implement for any basic tried data structure.
+
+This is the trick question we have to solve.
+
+So let's go through our steps of solving this problem.
+
+The first thing that we need to do is verify the constraints, and here we want to ask the similar question
+
+that we asked with our previous interface design question can we implement any helper classes and objects
+
+to make it easier for us?
+
+And honestly, they'll always say, yes, you can use any features you see fit unless they're trying
+
+to challenge you in a different way just to test you.
+
+But most of the time they will say yes.
+
+So with that, we want to implement our tri interface.
+
+So take a look at this and remember that this is what you're implementing because I want you to try
+
+and do it yourself.
+
+So pause the video, copy this down so you know what you're implementing.
+
+And then let's move on to the next step, which is writing out some test cases here.
+
+I just want you to go through the previous test cases we walk through when we looked at what the question
+
+and these methods were doing.
+
+Just to give you a quick reminder here, what we see is that exact same try that we just built and the
+
+methods that we need to go through and to test that everything works is first we insert the word apple,
+
+then we search for the word dog.
+
+We know that dog doesn't exist at this point, so it should return false.
+
+So we insert dog and when we search again, now that we've added the dog, it should return.
+
+True, if we look for starts with app, this should also return true because we previously had inserted
+
+the app characters through Apple.
+
+But if we search for app, this should return false, because while we inserted Apple, we did not insert
+
+the word app, so we insert app and then when we search for app again, this should now return.
+
+True.
+
+These are the test cases that you want to make sure that you can pass with your try.
+
+So try and implement this solution yourself.
+
+Remember, we're building out a class and we're following that interface that you just copied down.
+
+So in the next video, we will solve this together.
+
+It's actually pretty straightforward.
+
+So you should be able to solve it pretty easily.
+
+There's just a lot of different additional edge cases you need to consider in terms of what character
+
+you're looking at, whether or not it's an end character, but it's a good practice for you to think

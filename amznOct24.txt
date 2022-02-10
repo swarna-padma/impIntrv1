@@ -1,0 +1,238 @@
+Let's start by assuming that the zeroes end up at the start of the array. We'll keep track of two things: count_of_ones, and displacement, both initialized to zero. Each time we find a 1, we increment count_of_ones. Each time we find a 0, we increase displacement by count_of_ones.
+
+Then we do this in the other direction. Both ways are linear, so this is linear.
+
+E.g. 1010001
+
+1: count_of_ones: 0 -> 1
+0: displacement: 0 -> 1
+1: count_of_ones: 1 -> 2
+0: displacement: 1 -> 3
+0: displacement: 3 -> 5
+0: displacement: 5 -> 7
+1: count_of_ones: 2 -> 3
+The answer for this direction is the final displacement, or 7. Going the other way we get 5. Final answer is 5.
+
+In fact, the sum of the final displacements (starting vs ending with all zeroes) will always equal num_zeroes * num_ones. This halves the work (though it's still linear).
+
+
+
+
+
+
+
+Sanjay Reddy12:24 PM
+https://leetcode.com/playground/5XA9Jc7C
+Sanjay Reddy12:31 PM
+https://www.geeksforgeeks.org/minimum-swaps-required-sort-binary-array/
+Sanjay Reddy1:20 PM
+yes akka
+1 min
+Sanjay Reddy1:52 PM
+https://leetcode.com/discuss/interview-question/1469039/amazon-oa-countmaximumteams
+Sanjay Reddy1:54 PM
+https://leetcode.com/discuss/interview-question/903219/alarmcom-new-grad-oa-2021-grouping-digits
+
+
+
+
+https://www.amazon.in/Data-Structures-Algorithmic-Thinking-Go/dp/1949870901/ref=sr_1_1_sspa?dchild=1&keywords=data+structures+and+algorithms&qid=1635064532&s=books&sprefix=data%2Cstripbooks%2C251&sr=1-1-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEyNENaRklCMVBGSjJTJmVuY3J5cHRlZElkPUEwMzU0MjMyMVk1WUMzOUo2SkNWUyZlbmNyeXB0ZWRBZElkPUEwODUxMzk0WFlNUkxSRkdHM04yJndpZGdldE5hbWU9c3BfYXRmJmFjdGlvbj1jbGlja1JlZGlyZWN0JmRvTm90TG9nQ2xpY2s9dHJ1ZQ==
+
+
+-----------------
+
+I am thinking if we sort the complete array and then create a sliding window of size = teamSize then iterate over array. So if diff between max element - min is <= threshold we move window to + teamSize else we increase by 1 and then in end return count;
+
+
+
+
+
+
+
+TEAMSIZE 
+
+I coped code from my Eclipse IDE.. 
+
+I first tried Code 2.. and fell short in time for code 1.. so I worked the solution in [my friendly and used to ] local Eclipse ide and copied onto Hacker editor. 
+
+My First  thought is checking the logic in nesting loops {defenetely no thte best for T(O)}, Yet this helps me for drafting a solution quickly.  once I figured the math behind  - 
+ resorted to Sorting the input array  and to traverse and find the count in single loop. 
+
+using nesting the  input array and then traversing  which would be O(n^2)
+
+Since a  member can only be in one array  - shifting the indexes by teamsize in each iteration . 
+If match is not found than index is hsifted by one.
+
+counters, indexes take O(1) each   > so Space COmplexity = O(1)
+TimeComplexity -== Quick Sort gives Time complexity of  O(nlog(n))
+plus the loop is linear traverse and is implementing in  best time complexity as well O(nlog(n)) 
+
+
+
+1 1 1 1 0 1 0 1
+
+x0110
+1010
+1100
+
+
+O,1,0,1, == 0,0,1,1
+
+I thought this was simplest and took it first. 
+But some logic I jumbled up and case dint go well.  
+I missed to remember the point that  [1,1,1,0,0,0] is also sorted. 
+and to beat the test in time just quckly get on with my logic
+
+I tried to work the logic this way :- 
+finding temp zeroes  to the right side of every '1' and adding them 
+
+Swap every zero with its adjacent 1.  so I calculated as no of zeroes on right side of 1 = total swap operations. 
+BUt I seemed to have missed ht epoint , a swap may cause 
+
+Time Complexity: O(n) 
+Auxiliary Space: O(n)
+
+
+================ 
+
+
+
+
+
+
+
+You and other engineers on the team are tasked with developing a real-time voting service for a new Amazon Prime singing show - Amazon Voice. The final show is scheduled to take place 5 weeks from now. At the end of the show, there will be a 5-minute voting block where all votes are tabulated
+
+
+5 weeks from today 
+
+
+ From: New Project Alert
+Subject: Overview - Inventory Management System
+Message
+
+Your team is building a new inventory management system that is going to be offered as a SaaS product (Software-as-a-Service).
+
+Select the NEXT button to start the new project.
+
+
+
+Inbox
+Email
+Section progress
+Progress 29 percent
+
+    Your team is building a new inventory management system that is going to be offered as a SaaS product (Software-as-a-Service).
+
+From: Stansilov, Tech Lead
+Subject: System Architecture
+Message
+
+Hi,
+
+The product owner has finalized requirements for the inventory management system. We need to architect a system to support these requirements. I'm hoping you can help with this effort.
+
+Stansilov
+Task
+
+Rate the effectiveness of each action below as if it were your next step.
+Required question
+Statements
+	
+Not at all Effective
+	
+Slightly Effective
+	
+Moderately Effective
+	
+Very Effective
+	
+Extremely Effective
+Set up time to discuss the requirements with the product owner.
+	
+Not at all Effective
+	
+Slightly Effective
+	
+Moderately Effective
+	
+Very Effective
+	
+Extremely Effective
+Sketch together a high level diagram.
+	
+Not at all Effective
+	
+Slightly Effective
+	
+Moderately Effective
+	
+Very Effective
+	
+Extremely Effective
+Set up an operational dashboard of metrics, alarms, and documentation.
+	
+Not at all Effective
+	
+Slightly Effective
+	
+Moderately Effective
+	
+Very Effective
+	
+Extremely Effective
+Develop a proof of concept with your team and senior engineers to test the key system constructs.
+	
+Not at all Effective
+	
+Slightly Effective
+	
+Moderately Effective
+	
+Very Effective
+	
+Extremely Effective
+Prepare and host a system-level architecture review.
+	
+Not at all Effective
+	
+Slightly Effective
+	
+Moderately Effective
+	
+Very Effective
+	
+Extremely Effective
+
+ey-value data store.
+	
+Not at all Effective
+	
+Slightly Effective
+	
+Moderately Effective
+	
+Very Effective
+	
+Extremely Effective
+Elastic search.
+	
+Not at all Effective
+	
+Slightly Effective
+	
+Moderately Effective
+	
+Very Effective
+	
+Extremely Effective
+Cloud file store.
+
+
+A flat file, also known as a text database, is a type of database that stores data in a plain text format. ... Flat files typica
+
+
+
+Amazon is building a traffic video service for a large metro environment. Individual traffic cameras will send updates to the central service based on physical capabilities, limitations, and configurations. Due to variable volume, message queuing is planned, so it's necessary to design and support an appropriate message format.
+
+Select the NEXT button to start the new project.------------
